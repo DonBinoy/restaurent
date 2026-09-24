@@ -1,13 +1,14 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import Categories from "@/components/Categories";
 import ReelsCarousel from "@/components/ReelsCarousel";
 import FeaturedHampers from "@/components/FeaturedHampers";
-import Categories from "@/components/Categories";
-import SpecialOffer from "@/components/SpecialOffer";
 import Products from "@/components/Products";
-import Craft from "@/components/Craft";
+import SpecialOfferBanner from "@/components/SpecialOfferBanner";
 import Testimonials from "@/components/Testimonials";
 import TextReviews from "@/components/TextReviews";
+import Recipes from "@/components/Recipes";
+import Heritage from "@/components/Heritage";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -18,12 +19,13 @@ export default function Home() {
         <Hero />
         <Categories />
         <Products />
-        <FeaturedHampers />
-        <SpecialOffer />
         <ReelsCarousel />
-        <Craft />
+        <FeaturedHampers />
+        <SpecialOfferBanner />
         <Testimonials />
         <TextReviews />
+        <Recipes />
+        <Heritage />
       </main>
       <Footer />
     </>

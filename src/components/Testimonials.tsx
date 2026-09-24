@@ -1,112 +1,58 @@
 "use client";
 
 import Image from "next/image";
-import { Play } from "lucide-react";
-import { motion } from "framer-motion";
-import { useState } from "react";
 
-const videos = [
-  { id: 1, name: "Aarav", location: "Mumbai", image: "/test_1.png" },
-  { id: 2, name: "Meera", location: "Bangalore", image: "/test_2.png" },
-  { id: 3, name: "Fahad", location: "Dubai", image: "/test_1.png" },
-  { id: 4, name: "Shreya", location: "Kozhikode", image: "/test_2.png" },
-  { id: 5, name: "Kiran", location: "Chennai", image: "/test_1.png" },
+const people = [
+  { id: 1, name: "Arun Vijay", image: "/test_1.png" },
+  { id: 2, name: "Sneha Reddy", image: "/test_2.png" },
+  { id: 3, name: "Kiran Kumar", image: "/test_1.png" },
+  { id: 4, name: "Deepa Menon", image: "/test_2.png" },
+  { id: 5, name: "Rahul Sharma", image: "/test_1.png" },
+  { id: 6, name: "Priya Das", image: "/test_2.png" },
 ];
 
 export default function Testimonials() {
-  const [activeIndex, setActiveIndex] = useState(2); // Center active
-
   return (
-    <section className="py-24 bg-[#053a73] overflow-hidden relative">
-      
-      {/* Background Decor */}
-      <div className="absolute inset-0 opacity-10 bg-[url('/vintage_store.png')] bg-cover mix-blend-overlay"></div>
-
-      <div className="max-w-[1400px] mx-auto px-4 md:px-12 relative z-10">
+    <section className="py-16 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-green-900 via-[var(--color-primary)] to-[var(--color-primary)] overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-12 text-center">
         
-        {/* Header */}
-        <div className="text-center mb-16 text-white">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="font-serif text-3xl md:text-5xl mb-6"
-          >
-            They're talking about <span className="text-[var(--color-accent)] font-bold italic">Sankaran</span>
-          </motion.h2>
-
-          {/* Avatar Heads */}
-          <motion.div 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="flex justify-center items-center gap-4 md:gap-8 flex-wrap"
-          >
-            {videos.map((vid, idx) => (
-              <div 
-                key={vid.id} 
-                onClick={() => setActiveIndex(idx)}
-                className="flex flex-col items-center gap-2 cursor-pointer group"
-              >
-                <div className={`w-12 h-12 rounded-full overflow-hidden border-2 transition-all duration-300 ${activeIndex === idx ? 'border-[var(--color-accent)] scale-110' : 'border-transparent opacity-60 group-hover:opacity-100'}`}>
-                  <Image src={vid.image} alt={vid.name} width={48} height={48} className="object-cover w-full h-full" />
-                </div>
-                <span className={`text-[10px] uppercase font-bold tracking-wider transition-colors ${activeIndex === idx ? 'text-[var(--color-accent)]' : 'text-white/60'}`}>{vid.name}</span>
+        <h2 className="text-3xl md:text-4xl font-bold font-sans text-white mb-2">
+          They&apos;re talking about <span className="text-[var(--color-accent)]">Sankaran Bakery</span>
+        </h2>
+        <p className="text-[10px] uppercase tracking-[0.3em] text-white/50 mb-10">
+          The perfect choice for every celebration
+        </p>
+        
+        {/* Profile Avatars Row */}
+        <div className="flex justify-center gap-4 md:gap-8 flex-wrap mb-12">
+          {people.map((person) => (
+            <div key={person.id} className="flex flex-col items-center gap-2">
+              <div className="w-12 h-12 rounded-full border-2 border-[var(--color-accent)] overflow-hidden relative">
+                <Image src={person.image || "/ingredients.png"} alt={person.name} fill className="object-cover" />
               </div>
-            ))}
-          </motion.div>
+              <span className="text-white/80 text-[9px] font-medium uppercase tracking-wider">{person.name}</span>
+            </div>
+          ))}
         </div>
 
-        {/* Video Cards Carousel */}
-        <div className="flex justify-center items-center gap-4 md:gap-8 h-[400px] md:h-[500px]">
-          {videos.map((vid, idx) => {
-            const isActive = idx === activeIndex;
-            const isPrev = idx === activeIndex - 1;
-            const isNext = idx === activeIndex + 1;
-            
-            // Only show adjacent cards on mobile, or 5 cards on desktop
-            if (Math.abs(idx - activeIndex) > 2) return null;
+        {/* Video Overlays (Mocking the overlapping video cards) */}
+        <div className="relative h-[300px] md:h-[400px] flex justify-center items-center mt-8">
+          
+          <div className="absolute left-1/4 md:left-[15%] w-[200px] h-[250px] md:w-[250px] md:h-[350px] rounded-xl overflow-hidden shadow-2xl -rotate-6 z-10 opacity-60">
+             <Image src="/test_1.png" alt="Review" fill className="object-cover" />
+          </div>
+          
+          <div className="absolute w-[220px] h-[280px] md:w-[300px] md:h-[400px] rounded-xl overflow-hidden shadow-2xl z-30 border-4 border-[var(--color-primary)]">
+             <Image src="/hero_sweets.png" alt="Review" fill className="object-cover" />
+             <div className="absolute bottom-4 right-4 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg">
+                <div className="w-0 h-0 border-t-8 border-t-transparent border-l-[12px] border-l-black border-b-8 border-b-transparent ml-1"></div>
+             </div>
+          </div>
+          
+          <div className="absolute right-1/4 md:right-[15%] w-[200px] h-[250px] md:w-[250px] md:h-[350px] rounded-xl overflow-hidden shadow-2xl rotate-6 z-20 opacity-60">
+             <Image src="/test_2.png" alt="Review" fill className="object-cover" />
+          </div>
 
-            return (
-              <motion.div
-                key={vid.id}
-                onClick={() => setActiveIndex(idx)}
-                animate={{
-                  scale: isActive ? 1 : 0.85,
-                  opacity: isActive ? 1 : (isPrev || isNext ? 0.6 : 0.3),
-                  zIndex: isActive ? 30 : 10,
-                }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                className={`relative rounded-2xl overflow-hidden cursor-pointer shadow-2xl transition-all w-[240px] md:w-[320px] aspect-[9/16] ${!isActive && 'hidden md:block'}`}
-              >
-                <Image
-                  src={vid.image}
-                  alt={vid.name}
-                  fill
-                  className="object-cover"
-                />
-                
-                {/* Dark Overlay */}
-                <div className={`absolute inset-0 bg-black transition-opacity duration-500 ${isActive ? 'opacity-20' : 'opacity-60'}`}></div>
-
-                {/* Play Button */}
-                {isActive && (
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 animate-pulse">
-                      <Play size={24} fill="white" className="text-white ml-1" />
-                    </div>
-                  </div>
-                )}
-
-                {/* Footer Info */}
-                <div className="absolute bottom-4 left-4 text-white">
-                  <h3 className="text-sm font-bold">{vid.name}</h3>
-                  <p className="text-[10px] opacity-80">{vid.location}</p>
-                </div>
-              </motion.div>
-            );
-          })}
         </div>
 
       </div>

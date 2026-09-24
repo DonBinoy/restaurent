@@ -1,136 +1,57 @@
 "use client";
 
-import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import { Search, User, ShoppingBag, Menu } from "lucide-react";
+import { Globe, ShoppingBag } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [hidden, setHidden] = useState(false);
-  
-  const { scrollY } = useScroll();
-
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    const previous = scrollY.getPrevious() || 0;
-    
-    // Check if scrolled past threshold for background change
-    if (latest > 50) {
-      setScrolled(true);
-    } else {
-      setScrolled(false);
-    }
-    
-    // Hide on scroll down, show on scroll up
-    if (latest > 150 && latest > previous) {
-      setHidden(true);
-    } else {
-      setHidden(false);
-    }
-  });
-
-  const navLinks = ["STORY", "HALWA", "CRAFT", "ARCHIVE", "JOURNAL", "SHOP"];
-
   return (
-    <motion.nav 
-      variants={{
-        visible: { y: 0 },
-        hidden: { y: "-100%" }
-      }}
-      initial="visible"
-      animate={hidden ? "hidden" : "visible"}
-      transition={{ duration: 0.35, ease: "easeInOut" }}
-      className={`sticky top-0 w-full z-50 transition-colors duration-300 border-b ${scrolled ? 'bg-[#0B57A5]/90 backdrop-blur-md border-white/10' : 'bg-[var(--color-primary)] border-transparent'}`}
-    >
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex justify-between items-center h-24">
+    <nav className="w-full relative z-50 bg-[#0B57A5] text-white pt-8 pb-16 px-6 md:px-16">
+      <div className="max-w-[1400px] mx-auto flex justify-between items-center relative z-10">
         
-        {/* Logo Left */}
-        <Link href="/" className="flex flex-col text-white w-1/4">
-          <motion.span 
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="font-title text-2xl tracking-[0.2em] font-medium"
-          >
-            SANKARAN
-          </motion.span>
-          <motion.span 
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className="font-sans text-[0.6rem] tracking-[0.3em] opacity-70"
-          >
-            KOZHIKODE - EST. 1933
-          </motion.span>
+        {/* Logo */}
+        <Link href="/" className="text-3xl md:text-4xl font-bold tracking-widest font-sans flex-shrink-0 drop-shadow-sm">
+          SANKARAN<sup className="text-lg">®</sup>
         </Link>
 
-        {/* Center Links */}
-        <motion.div 
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: {},
-            visible: { transition: { staggerChildren: 0.1, delayChildren: 0.4 } }
-          }}
-          className="hidden lg:flex justify-center gap-10 w-2/4"
-        >
-          {navLinks.map((item) => (
-            <motion.div 
-              key={item}
-              variants={{
-                hidden: { opacity: 0, y: -10 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
-              }}
-            >
-              <Link
-                href={`#${item.toLowerCase()}`}
-                className="text-xs uppercase tracking-[0.2em] text-white/80 hover:text-white transition-colors"
-              >
-                {item}
-              </Link>
-            </motion.div>
-          ))}
-        </motion.div>
+        {/* Links */}
+        <div className="hidden md:flex gap-12 text-xs md:text-sm tracking-widest uppercase items-center relative font-bold">
+          <Link href="#" className="hover:text-gray-300 transition-colors">Best Sellers</Link>
+          <Link href="#" className="hover:text-gray-300 transition-colors">Classic Boxes</Link>
+          <Link href="#" className="hover:text-gray-300 transition-colors">Our Story</Link>
+          <Link href="#" className="hover:text-gray-300 transition-colors">Contact</Link>
+        </div>
 
-        {/* Right Icons */}
-        <motion.div 
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: {},
-            visible: { transition: { staggerChildren: 0.1, delayChildren: 0.6 } }
-          }}
-          className="hidden lg:flex justify-end items-center gap-6 text-white w-1/4"
-        >
-          <motion.button variants={{ hidden: { opacity: 0, scale: 0.8 }, visible: { opacity: 1, scale: 1 } }} whileHover={{ scale: 1.1 }} className="hover:text-white/70 transition-colors">
-            <Search size={18} strokeWidth={1.5} />
-          </motion.button>
-          <motion.button variants={{ hidden: { opacity: 0, scale: 0.8 }, visible: { opacity: 1, scale: 1 } }} whileHover={{ scale: 1.1 }} className="hover:text-white/70 transition-colors">
-            <User size={18} strokeWidth={1.5} />
-          </motion.button>
-          <motion.button variants={{ hidden: { opacity: 0, scale: 0.8 }, visible: { opacity: 1, scale: 1 } }} whileHover={{ scale: 1.05 }} className="relative hover:text-white/70 transition-colors flex items-center">
-            <ShoppingBag size={18} strokeWidth={1.5} />
-            <motion.span 
-              initial={{ scale: 0 }} 
-              animate={{ scale: 1 }} 
-              transition={{ delay: 1, type: "spring" }}
-              className="absolute -top-1 -right-2 bg-white text-black text-[9px] font-bold w-4 h-4 flex items-center justify-center rounded-full"
-            >
-              0
-            </motion.span>
-          </motion.button>
-        </motion.div>
-
-        {/* Mobile Toggle */}
-        <motion.button 
-          initial={{ opacity: 0 }} 
-          animate={{ opacity: 1 }} 
-          transition={{ delay: 0.5 }}
-          className="lg:hidden text-white"
-        >
-          <Menu size={24} />
-        </motion.button>
+        {/* Icons */}
+        <div className="flex gap-6 items-center flex-shrink-0">
+          <button className="w-12 h-12 rounded-full border-[1.5px] border-white flex items-center justify-center hover:bg-white hover:text-[#0B57A5] transition-all shadow-sm">
+            <Globe size={20} strokeWidth={2.5} />
+          </button>
+          <button className="w-12 h-12 rounded-full bg-white text-[#0B57A5] flex items-center justify-center hover:bg-gray-100 transition-all shadow-md">
+            <ShoppingBag size={20} strokeWidth={2.5} />
+          </button>
+        </div>
       </div>
-    </motion.nav>
+
+      {/* Wavy bottom border */}
+      <div className="absolute -bottom-[2px] left-0 w-full overflow-hidden leading-none z-20 pointer-events-none">
+        <svg
+          className="relative block w-full h-[50px] md:h-[70px]"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+          viewBox="0 0 1200 120"
+        >
+          <path
+            d="M0,60 C150,120 300,0 450,60 C600,120 750,0 900,60 C1050,120 1200,0 1200,60 L1200,120 L0,120 Z"
+            fill="#FFFEF0"
+          ></path>
+          <path
+            d="M0,45 C150,105 300,-15 450,45 C600,105 750,-15 900,45 C1050,105 1200,-15 1200,45"
+            fill="none"
+            stroke="white"
+            strokeWidth="3"
+          ></path>
+        </svg>
+      </div>
+    </nav>
   );
 }
