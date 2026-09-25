@@ -5,7 +5,7 @@ import FeaturedHampers from "@/components/FeaturedHampers";
 import Categories from "@/components/Categories";
 import SpecialOffer from "@/components/SpecialOffer";
 import Products from "@/components/Products";
-import GiftingBanner from "@/components/GiftingBanner";
+import LegacyBanner from "@/components/LegacyBanner";
 import Testimonials from "@/components/Testimonials";
 import TextReviews from "@/components/TextReviews";
 import Footer from "@/components/Footer";
@@ -21,7 +21,7 @@ export default function Home() {
         <FeaturedHampers />
         <SpecialOffer />
         <ReelsCarousel />
-        <GiftingBanner />
+        <LegacyBanner />
         <Testimonials />
         <TextReviews />
       </main>
