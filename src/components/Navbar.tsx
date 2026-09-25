@@ -3,6 +3,7 @@
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { Search, User, ShoppingBag, Menu } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 export default function Navbar() {
@@ -43,25 +44,39 @@ export default function Navbar() {
       className={`sticky top-0 w-full z-50 transition-colors duration-300 border-b ${scrolled ? 'bg-[#0B57A5]/90 backdrop-blur-md border-white/10' : 'bg-[var(--color-primary)] border-transparent'}`}
     >
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex justify-between items-center h-24">
-        
         {/* Logo Left */}
-        <Link href="/" className="flex flex-col text-white w-1/4">
-          <motion.span 
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
+        <Link href="/" className="flex items-center gap-4 text-white w-1/4">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="font-title text-2xl tracking-[0.2em] font-medium"
+            className="relative w-20 h-20 md:w-24 md:h-24"
           >
-            SANKARAN
-          </motion.span>
-          <motion.span 
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className="font-sans text-[0.6rem] tracking-[0.3em] opacity-70"
-          >
-            KOZHIKODE - EST. 1933
-          </motion.span>
+            <Image 
+              src="/shanakaran_logo.svg" 
+              alt="Sankaran Logo" 
+              fill
+              className="object-contain"
+            />
+          </motion.div>
+          <div className="flex flex-col">
+            <motion.span 
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="font-title text-xl md:text-2xl tracking-[0.2em] font-medium"
+            >
+              SANKARAN
+            </motion.span>
+            <motion.span 
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              className="font-sans text-[0.5rem] md:text-[0.6rem] tracking-[0.3em] opacity-70"
+            >
+              KOZHIKODE - EST. 1933
+            </motion.span>
+          </div>
         </Link>
 
         {/* Center Links */}

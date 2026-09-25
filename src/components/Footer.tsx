@@ -141,6 +141,14 @@ export default function Footer() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-16 flex flex-col lg:flex-row justify-between items-center text-center lg:text-left gap-12 lg:gap-0 relative z-10">
           
           <motion.div variants={itemVariants} className="w-full lg:w-1/3 flex flex-col items-center lg:items-start">
+            <div className="relative w-28 h-28 md:w-36 md:h-36 mb-4">
+              <Image 
+                src="/shanakaran_logo.svg" 
+                alt="Sankaran Logo" 
+                fill
+                className="object-contain"
+              />
+            </div>
             <h2 className="font-title text-3xl tracking-[0.2em] font-medium mb-3">SANKARAN</h2>
             <p className="font-sans text-[0.6rem] tracking-[0.3em] opacity-70">KOZHIKODE - EST. 1933</p>
           </motion.div>
