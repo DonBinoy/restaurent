@@ -41,7 +41,7 @@ export default function Navbar() {
       initial="visible"
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
-      className={`sticky top-0 w-full z-50 transition-colors duration-300 border-b ${scrolled ? 'bg-[#0B57A5]/90 backdrop-blur-md border-white/10' : 'bg-[var(--color-primary)] border-transparent'}`}
+      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 border-b ${scrolled ? 'bg-[#0B57A5]/95 backdrop-blur-md border-white/10 shadow-lg' : 'bg-transparent border-transparent'}`}
     >
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex justify-between items-center h-24">
         {/* Logo Left */}
@@ -50,7 +50,7 @@ export default function Navbar() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="relative w-20 h-20 md:w-24 md:h-24"
+            className="relative w-24 h-24 md:w-32 md:h-32"
           >
             <Image 
               src="/shanakaran_logo.svg" 
@@ -64,9 +64,9 @@ export default function Navbar() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="font-title text-xl md:text-2xl tracking-[0.2em] font-medium"
+              className="font-title text-base md:text-lg tracking-[0.15em] md:tracking-[0.2em] font-medium whitespace-nowrap"
             >
-              SANKARAN
+              SANKARAN BAKERY
             </motion.span>
             <motion.span 
               initial={{ opacity: 0, y: 10 }}

@@ -4,29 +4,20 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const categories = [
-  { name: "Classic Halwa", image: "/halwa_red.png", count: "4 Items", color: "bg-[#F8F9FA]" },
-  { name: "Premium Dry Fruits", image: "/halwa_dryfruit.png", count: "3 Items", color: "bg-[#FDF8F5]" },
-  { name: "Festive Hampers", image: "/halwa_black.png", count: "2 Items", color: "bg-[#F5F8FD]" },
-  { name: "Assorted Bites", image: "/halwa_coconut.png", count: "5 Items", color: "bg-[#FCF5FD]" },
-  { name: "Wood-Fired", image: "/halwa_yellow.png", count: "2 Items", color: "bg-[#FFFDF5]" },
-  { name: "Sugar-Free", image: "/halwa_red.png", count: "3 Items", color: "bg-[#F5FDF8]" },
-  { name: "Savouries", image: "/halwa_coconut.png", count: "8 Items", color: "bg-[#FFF5F5]" },
-  { name: "New Arrivals", image: "/halwa_dryfruit.png", count: "4 Items", color: "bg-[#F8F5FF]" },
+  { name: "Classic Black", image: "/halwa_black.png", count: "Black Halwa", color: "bg-[#2A2A2A]" },
+  { name: "Rich Banana", image: "/halwa_banana.png", count: "Banana Halwa", color: "bg-[#D4A373]" },
+  { name: "Dry Fruit", image: "/halwa_dryfruit.png", count: "Dry Fruit Halwa", color: "bg-[#8B5A2B]" },
+  { name: "Pineapple", image: "/halwa_pineapple.png", count: "Pineapple Halwa", color: "bg-[#E9C46A]" },
+  { name: "Tender Coconut", image: "/halwa_coconut.png", count: "Coconut Halwa", color: "bg-[#F4F1DE]" },
 ];
 
 export default function Categories() {
   return (
-    <section className="pt-8 pb-4 bg-white relative border-b border-gray-100">
+    <section className="pb-10 bg-white relative border-b border-gray-100 z-20">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 text-center">
-        
-        <h2 className="text-2xl font-bold font-sans text-gray-900 tracking-tight mb-1">
-          Shop by Category
-        </h2>
-        <p className="text-gray-500 font-serif text-sm mb-6">
-          Explore our traditional recipes
-        </p>
 
-        <div className="flex flex-wrap justify-center gap-4 md:gap-8">
+        <div className="flex flex-wrap justify-center md:justify-center items-center gap-4 md:gap-8 pt-8 md:pt-12 mb-12 relative z-30">
+          
           {categories.map((cat, idx) => (
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
@@ -36,28 +27,26 @@ export default function Categories() {
               key={idx}
               className="flex flex-col items-center group cursor-pointer"
             >
-              <div className={`relative w-20 h-20 md:w-24 md:h-24 rounded-full ${cat.color} flex items-center justify-center mb-2 overflow-hidden border border-gray-100 group-hover:border-[var(--color-primary)] transition-colors duration-300 shadow-sm group-hover:shadow-md p-1 md:p-2`}>
-                <div className="relative w-full h-full rounded-full overflow-hidden group-hover:scale-110 transition-transform duration-500">
-                  <Image 
-                    src={cat.image}
-                    alt={cat.name}
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
-                </div>
+              <div className={`relative w-24 h-24 md:w-32 md:h-32 rounded-full ${cat.color} flex items-center justify-center mb-4 overflow-hidden border-[6px] border-white group-hover:border-[#A8763E] transition-colors duration-300 shadow-xl group-hover:shadow-2xl -mt-20 md:-mt-28`}>
+                <Image 
+                  src={cat.image}
+                  alt={cat.name}
+                  fill
+                  className="object-contain scale-[1.2] group-hover:scale-[1.3] transition-transform duration-500 p-3"
+                  unoptimized
+                />
               </div>
               
-              <h3 className="font-bold text-xs md:text-sm text-gray-900 group-hover:text-[var(--color-primary)] transition-colors">
+              <h3 className="font-bold text-sm md:text-base text-gray-900 group-hover:text-[var(--color-primary)] transition-colors">
                 {cat.name}
               </h3>
-              <p className="text-[9px] md:text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-0.5">
+              <p className="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-widest mt-1">
                 {cat.count}
               </p>
             </motion.div>
           ))}
         </div>
-
+        
       </div>
     </section>
   );

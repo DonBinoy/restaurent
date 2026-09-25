@@ -10,15 +10,46 @@ const products = [
   { name: "Tender Coconut Halwa", desc: "A modern flavour.", weight: "500g", price: 360, image: "/halwa_coconut.png", tag: "New" },
   { name: "Dry Fruit Halwa", desc: "For those who love more.", weight: "500g", price: 420, image: "/halwa_dryfruit.png", tag: "" },
   { name: "Pineapple Halwa", desc: "Fruity. Fresh. Familiar.", weight: "500g", price: 340, image: "/halwa_pineapple.png", tag: "" },
+  { name: "Mango Halwa", desc: "Summer in a bite.", weight: "500g", price: 360, image: "/halwa_pineapple.png", tag: "Seasonal" },
+  { name: "Dates Halwa", desc: "Naturally sweetened richness.", weight: "500g", price: 380, image: "/halwa_black.png", tag: "" },
 ];
 
 export default function Products() {
   return (
-    <section id="halwa" className="py-20 bg-white">
-      <div className="max-w-[1400px] mx-auto px-4 md:px-12">
+    <section id="halwa" className="pt-8 pb-20 bg-white relative overflow-hidden">
+      
+      {/* Abstract Thick Curved Lines Background */}
+      <div className="absolute inset-0 pointer-events-none z-0 flex items-center justify-center overflow-hidden">
+        <svg className="absolute w-[200%] md:w-[120%] h-full opacity-70" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+          <motion.path 
+            initial={{ pathLength: 0, opacity: 0 }}
+            whileInView={{ pathLength: 1, opacity: 1 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 2.5, ease: "easeOut" }}
+            d="M -200 300 C 200 -100, 400 800, 800 400 C 1200 0, 1300 900, 1600 500"
+            fill="transparent"
+            stroke="#0B57A5"
+            strokeWidth="60"
+            strokeLinecap="round"
+          />
+          <motion.path 
+            initial={{ pathLength: 0, opacity: 0 }}
+            whileInView={{ pathLength: 1, opacity: 1 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 3, ease: "easeOut", delay: 0.2 }}
+            d="M -200 700 C 300 1100, 500 100, 900 600 C 1300 1100, 1400 200, 1600 800"
+            fill="transparent"
+            stroke="#0B57A5"
+            strokeWidth="100"
+            strokeLinecap="round"
+          />
+        </svg>
+      </div>
+
+      <div className="max-w-[1400px] mx-auto px-4 md:px-12 relative z-10">
         
         {/* Section Header */}
-        <div className="flex justify-between items-end mb-12 border-b border-gray-200 pb-4">
+        <div className="flex justify-between items-end mb-12">
           <h2 className="font-serif text-3xl md:text-4xl text-gray-900 font-bold">
             Most <span className="italic text-[var(--color-primary)]">Popular</span> Products
           </h2>
@@ -80,10 +111,17 @@ export default function Products() {
         </div>
         
         {/* Mobile View All Button */}
-        <button className="w-full mt-8 py-4 border-2 border-gray-200 rounded-xl text-xs font-bold text-gray-600 uppercase tracking-widest md:hidden">
+        <button className="w-full mt-8 py-4 border-2 border-[var(--color-primary)] rounded-xl text-xs font-bold text-[var(--color-primary)] uppercase tracking-widest md:hidden hover:bg-[var(--color-primary)] hover:text-white transition-colors">
           View All Products
         </button>
 
+      </div>
+
+      {/* Smooth Wavy Shape Divider */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10 pointer-events-none">
+        <svg className="relative block w-full h-[25px] md:h-[45px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,60 C100,120 100,0 200,60 C300,120 300,0 400,60 C500,120 500,0 600,60 C700,120 700,0 800,60 C900,120 900,0 1000,60 C1100,120 1100,0 1200,60 L1200,120 L0,120 Z" fill="#fafafa"></path>
+        </svg>
       </div>
     </section>
   );

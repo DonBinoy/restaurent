@@ -51,12 +51,15 @@ const ImageWheelItem = ({ step, index, scrollYProgress, numberRotation }: any) =
           rotate: uprightRotation
         }}
       >
-        <div className="relative w-[250px] md:w-[450px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-white/20">
+        <div className="relative w-[250px] md:w-[450px] aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(168,118,62,0.15)] border border-[var(--color-accent)]/30 group">
+          {/* Subtle inner glow for images */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-[var(--color-accent)]/20 to-transparent mix-blend-overlay z-10 pointer-events-none"></div>
+          
           <Image
             src={step.image}
             alt={step.title}
             fill
-            className="object-cover"
+            className="object-cover transition-transform duration-1000 group-hover:scale-110"
           />
         </div>
       </motion.div>
@@ -90,9 +93,22 @@ const TextContentItem = ({ step, index, scrollYProgress }: any) => {
       className="absolute inset-0 w-full h-full flex flex-col justify-center pl-[5vw] md:pl-[10vw]"
       style={{ opacity, y }}
     >
-      <span className="font-title font-black text-6xl md:text-8xl text-white opacity-80 mb-4">{step.num}</span>
-      <h3 className="font-serif text-3xl md:text-5xl text-white mb-4 leading-tight">{step.title}</h3>
-      <p className="text-white/70 font-light text-base md:text-lg leading-relaxed max-w-sm">{step.desc}</p>
+      {/* Massive Background Watermark */}
+      <span className="absolute -left-10 md:left-0 top-1/2 -translate-y-1/2 font-title font-black text-[35vw] md:text-[25vw] text-white/[0.03] tracking-tighter pointer-events-none z-0 select-none">
+        {step.num}
+      </span>
+      
+      <div className="relative z-10 border-l-2 border-[var(--color-accent)] pl-8 md:pl-12">
+        <span className="font-title font-black text-2xl md:text-3xl text-[var(--color-accent)] tracking-[0.2em] mb-4 block">
+          STEP {step.num}
+        </span>
+        <h3 className="font-serif text-4xl md:text-6xl text-white mb-6 leading-tight drop-shadow-xl font-medium">
+          {step.title}
+        </h3>
+        <p className="text-white/60 font-sans text-base md:text-xl leading-relaxed max-w-md drop-shadow-md">
+          {step.desc}
+        </p>
+      </div>
     </motion.div>
   );
 };
@@ -110,7 +126,10 @@ export default function Craft() {
 
   return (
     <section id="craft" ref={containerRef} className="h-[500vh] bg-[var(--color-primary)] relative">
-      <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center">
+      {/* Background Texture */}
+      <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none bg-[url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')] z-0"></div>
+      
+      <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center z-10">
         
         {/* LEFT SIDE: The Visible Rotating Dial */}
         <div className="absolute top-1/2 -translate-y-1/2 -left-[60vw] md:-left-[20vw] w-[110vw] md:w-[60vw] aspect-square rounded-full border border-dashed border-white/20">
@@ -153,10 +172,22 @@ export default function Craft() {
           ))}
         </div>
 
-        <div className="absolute top-12 md:top-20 right-12 md:right-32 z-20">
-          <h2 className="font-title font-black text-lg md:text-2xl text-white/30 tracking-widest uppercase">The Craft</h2>
+        {/* Section Title (Vertical Spine on Right) */}
+        <div className="absolute top-1/2 -translate-y-1/2 right-4 md:right-12 z-20 pointer-events-none">
+          <h2 
+            className="font-title font-black text-sm md:text-xl text-white/30 tracking-[0.5em] uppercase" 
+            style={{ writingMode: 'vertical-rl' }}
+          >
+            The Craft
+          </h2>
         </div>
+      </div>
 
+      {/* Smooth Wavy Shape Divider */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10 pointer-events-none">
+        <svg className="relative block w-full h-[25px] md:h-[45px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,60 C100,120 100,0 200,60 C300,120 300,0 400,60 C500,120 500,0 600,60 C700,120 700,0 800,60 C900,120 900,0 1000,60 C1100,120 1100,0 1200,60 L1200,120 L0,120 Z" fill="#053a73"></path>
+        </svg>
       </div>
     </section>
   );
