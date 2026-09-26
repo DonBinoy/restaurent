@@ -4,11 +4,11 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const categories = [
-  { name: "Classic Black", image: "/halwa_black.png", count: "Black Halwa", color: "bg-[#2A2A2A]" },
-  { name: "Rich Banana", image: "/halwa_banana.png", count: "Banana Halwa", color: "bg-[#D4A373]" },
-  { name: "Dry Fruit", image: "/halwa_dryfruit.png", count: "Dry Fruit Halwa", color: "bg-[#8B5A2B]" },
-  { name: "Pineapple", image: "/halwa_pineapple.png", count: "Pineapple Halwa", color: "bg-[#E9C46A]" },
-  { name: "Tender Coconut", image: "/halwa_coconut.png", count: "Coconut Halwa", color: "bg-[#F4F1DE]" },
+  { name: "Authentic Halwa", image: "/halwa_red.png", count: "8 Varieties", color: "bg-[#7A1F1E]" },
+  { name: "Kerala Snacks", image: "/products/mixture.png", count: "Spicy & Savory", color: "bg-[#D48B37]" },
+  { name: "Sweet Cookies", image: "/products/achappam.png", count: "Crispy Bites", color: "bg-[#E2C391]" },
+  { name: "Local Chips", image: "/products/jackfruit-chips.png", count: "Freshly Fried", color: "bg-[#E9C46A]" },
+  { name: "Gift Packs", image: "/products/halwa-pack.png", count: "Assorted Boxes", color: "bg-[#2A2A2A]" },
 ];
 
 export default function Categories() {

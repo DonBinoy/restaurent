@@ -12,6 +12,13 @@ const products = [
   { name: "Pineapple Halwa", desc: "Fruity. Fresh. Familiar.", weight: "500g", price: 340, image: "/halwa_pineapple.png", tag: "" },
   { name: "Mango Halwa", desc: "Summer in a bite.", weight: "500g", price: 360, image: "/halwa_pineapple.png", tag: "Seasonal" },
   { name: "Dates Halwa", desc: "Naturally sweetened richness.", weight: "500g", price: 380, image: "/halwa_black.png", tag: "" },
+  { name: "Kerala Mixture", desc: "Crispy, spicy, and irresistible.", weight: "400g", price: 180, image: "/products/mixture.png", tag: "Spicy" },
+  { name: "Jackfruit Chips", desc: "Authentic Kerala crunch.", weight: "250g", price: 220, image: "/products/jackfruit-chips.png", tag: "Popular" },
+  { name: "Achappam", desc: "Traditional rose cookies.", weight: "200g", price: 150, image: "/products/achappam.png", tag: "" },
+  { name: "Pakkavada", desc: "Crispy ribbon pakoda.", weight: "300g", price: 160, image: "/products/pakkavada.png", tag: "" },
+  { name: "Butter Cookies", desc: "Melt in your mouth goodness.", weight: "250g", price: 200, image: "/products/cookies.png", tag: "" },
+  { name: "Murukku", desc: "Crunchy spiral savory snack.", weight: "300g", price: 150, image: "/products/murukk.png", tag: "" },
+  { name: "Assorted Halwa Pack", desc: "A bit of everything.", weight: "1kg", price: 750, image: "/products/halwa-pack.png", tag: "Value" },
 ];
 
 export default function Products() {

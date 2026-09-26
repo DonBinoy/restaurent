@@ -66,7 +66,7 @@ export default function FeaturedHampers() {
             <div className="absolute top-[65%] left-[-5%] md:left-0 -translate-y-1/2 w-[80%] max-w-[400px] md:max-w-[450px] aspect-square flex items-center justify-center z-10 pointer-events-none">
               <div className="absolute inset-20 bg-[var(--color-accent)]/20 blur-[80px] rounded-full"></div>
               <Image 
-                src="/luxury_halwa_box.png" 
+                src="/box.png" 
                 alt="Royal Heritage Hamper" 
                 fill 
                 className="object-contain drop-shadow-[0_30px_40px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-transform duration-1000 ease-out"
@@ -105,19 +105,27 @@ export default function FeaturedHampers() {
           </motion.div>
 
           {/* 2. CORPORATE GIFTING (Bottom Left) */}
-          <motion.div variants={cardVariants} className="bg-[#111111] rounded-[2rem] p-8 md:p-12 relative overflow-hidden flex flex-col md:flex-row items-center justify-between group h-auto md:h-[280px] shadow-sm">
+          <motion.div variants={cardVariants} className="bg-[#111111] rounded-[2rem] p-8 md:p-10 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 group h-auto md:h-[280px] shadow-sm">
             <div className="absolute inset-0 opacity-[0.02] mix-blend-overlay pointer-events-none bg-[url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')] z-0"></div>
             
-            <div className="relative z-10 max-w-sm text-center md:text-left mb-8 md:mb-0">
-              <h3 className="font-title font-black text-3xl md:text-5xl text-white uppercase leading-[0.9] mb-4">Corporate<br/>Gifting</h3>
-              <p className="text-sm text-white/50 font-light">Custom engraved wood boxes and bulk shipping for your employees and most valued clients.</p>
-            </div>
-
-            <div className="relative z-10">
-              <button className="flex items-center gap-4 bg-[var(--color-accent)] text-white px-8 py-4 rounded-full text-xs font-bold uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-colors">
+            {/* Left Content (Text + Button) */}
+            <div className="relative z-10 flex-1 flex flex-col items-center md:items-start text-center md:text-left">
+              <h3 className="font-title font-black text-3xl md:text-4xl lg:text-5xl text-white uppercase leading-[0.9] mb-4">Corporate<br/>Gifting</h3>
+              <p className="text-sm text-white/50 font-light mb-6 max-w-sm">Custom engraved wood boxes and bulk shipping for your employees and most valued clients.</p>
+              <button className="flex items-center gap-4 bg-[var(--color-accent)] text-white px-8 py-3 rounded-full text-xs font-bold uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-colors w-max shadow-xl">
                 Inquire Now
                 <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
               </button>
+            </div>
+
+            {/* Right Content (Rectangular Image) */}
+            <div className="relative z-10 w-full md:w-[260px] lg:w-[300px] h-[180px] md:h-full rounded-2xl overflow-hidden shrink-0 shadow-2xl">
+              <Image 
+                src="/products/halwa-pack.png" 
+                alt="Corporate Gifting Halwa Pack" 
+                fill 
+                className="object-cover group-hover:scale-110 transition-transform duration-700"
+              />
             </div>
           </motion.div>
 
@@ -154,22 +162,22 @@ export default function FeaturedHampers() {
             </div>
           </motion.div>
 
-          {/* 4. THE DARK TRIO */}
+          {/* 4. ACHAPPAM CARD */}
           <motion.div variants={cardVariants} className="flex-1 bg-white border border-gray-100 rounded-[2rem] p-8 relative overflow-hidden flex flex-col justify-between group min-h-[250px] shadow-sm hover:shadow-lg transition-shadow">
             <div className="relative z-10 flex justify-between items-start">
-              <h3 className="font-title font-black text-2xl uppercase leading-none text-black">The Dark<br/>Trio</h3>
-              <span className="font-bold text-xs bg-gray-100 text-black px-3 py-1 rounded-full">₹ 999</span>
+              <h3 className="font-title font-black text-2xl uppercase leading-none text-black">Traditional<br/>Achappam</h3>
+              <span className="font-bold text-xs bg-gray-100 text-black px-3 py-1 rounded-full">₹ 150</span>
             </div>
             <div className="relative w-full h-[140px] flex items-center justify-center z-10 pointer-events-none">
                <Image 
-                  src="/halwa_black.png" 
-                  alt="Black Halwa" 
+                  src="/products/achappam.png" 
+                  alt="Achappam" 
                   fill 
                   className="object-contain drop-shadow-xl group-hover:rotate-6 group-hover:scale-110 transition-transform duration-700"
                 />
             </div>
             <div className="relative z-10 flex justify-between items-end">
-              <p className="text-[11px] text-gray-500 max-w-[140px] font-medium leading-relaxed">Black, Banana, and Coconut Halwa trio perfect for gifting.</p>
+              <p className="text-[11px] text-gray-500 max-w-[140px] font-medium leading-relaxed">Crispy, sweet, and golden rose cookies perfect for tea time.</p>
               <button className="bg-black text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-[var(--color-accent)] transition-colors shrink-0">
                 <ShoppingBag size={14} />
               </button>
