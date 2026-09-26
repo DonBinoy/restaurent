@@ -47,7 +47,7 @@ export default function SpecialOffer() {
         transition={{ delay: 0.2 }}
         className="absolute top-1/3 md:top-1/2 left-6 md:left-20 md:-translate-y-1/2 z-40"
       >
-        <h3 className="font-title font-black text-5xl md:text-7xl text-[#052b54] uppercase tracking-tight leading-[0.9] drop-shadow-sm">
+        <h3 className="font-title font-black text-5xl md:text-7xl text-[var(--color-primary)] uppercase tracking-tight leading-[0.9] drop-shadow-sm">
           The<br/>Black<br/><span className="text-[var(--color-accent)]">Halwa</span>
         </h3>
       </motion.div>
@@ -58,7 +58,7 @@ export default function SpecialOffer() {
         className="absolute top-1/2 left-1/2 md:left-[60%] -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] md:w-[600px] md:h-[600px] z-30 pointer-events-none"
       >
         {/* Subtle background glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] bg-[#052b54]/5 blur-[100px] rounded-full"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] bg-[var(--color-primary)]/5 blur-[100px] rounded-full"></div>
         
         <Image
           src="/hero4.png"
@@ -70,7 +70,7 @@ export default function SpecialOffer() {
         />
         
         {/* Discount Badge attached to product */}
-        <div className="absolute top-10 right-10 md:top-20 md:right-20 bg-[#052b54] text-white w-24 h-24 md:w-32 md:h-32 rounded-full flex flex-col items-center justify-center shadow-2xl transform rotate-12 z-50">
+        <div className="absolute top-10 right-10 md:top-20 md:right-20 bg-[var(--color-primary)] text-white w-24 h-24 md:w-32 md:h-32 rounded-full flex flex-col items-center justify-center shadow-2xl transform rotate-12 z-50">
             <span className="font-black text-2xl md:text-4xl leading-none">-15%</span>
             <span className="font-bold text-[10px] md:text-[12px] uppercase tracking-widest mt-1 text-[var(--color-accent)]">Off</span>
         </div>
@@ -84,12 +84,12 @@ export default function SpecialOffer() {
         transition={{ delay: 0.4 }}
         className="absolute bottom-12 right-6 md:bottom-20 md:right-20 flex flex-col items-end z-40"
       >
-        <div className="flex items-center gap-3 text-[#052b54] text-xs font-bold uppercase tracking-widest bg-white shadow-[0_10px_30px_rgba(0,0,0,0.1)] px-6 py-4 rounded-full border border-black/5 mb-4">
+        <div className="flex items-center gap-3 text-[var(--color-primary)] text-xs font-bold uppercase tracking-widest bg-white shadow-[0_10px_30px_rgba(0,0,0,0.1)] px-6 py-4 rounded-full border border-black/5 mb-4">
           <Clock size={16} className="text-red-500" />
           <span className="text-red-500">Ends in 12h 45m</span>
         </div>
 
-        <button className="bg-[#052b54] text-white px-10 py-5 rounded-full font-bold text-sm md:text-base uppercase tracking-widest hover:bg-[var(--color-accent)] transition-all flex items-center justify-center gap-4 group shadow-[0_20px_40px_rgba(5,43,84,0.4)]">
+        <button className="bg-[var(--color-primary)] text-white px-10 py-5 rounded-full font-bold text-sm md:text-base uppercase tracking-widest hover:bg-[var(--color-accent)] transition-all flex items-center justify-center gap-4 group shadow-[0_20px_40px_rgba(5,43,84,0.4)]">
           Claim Offer Now
           <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
         </button>
@@ -98,7 +98,7 @@ export default function SpecialOffer() {
       {/* Smooth Wavy Shape Divider - Transitioning into Footer */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-50 pointer-events-none">
         <svg className="relative block w-full h-[25px] md:h-[45px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M0,60 C100,120 100,0 200,60 C300,120 300,0 400,60 C500,120 500,0 600,60 C700,120 700,0 800,60 C900,120 900,0 1000,60 C1100,120 1100,0 1200,60 L1200,120 L0,120 Z" fill="#052b54"></path>
+            <path d="M0,60 C100,120 100,0 200,60 C300,120 300,0 400,60 C500,120 500,0 600,60 C700,120 700,0 800,60 C900,120 900,0 1000,60 C1100,120 1100,0 1200,60 L1200,120 L0,120 Z" fill="var(--color-primary)"></path>
         </svg>
       </div>
     </section>

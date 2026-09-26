@@ -18,7 +18,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full relative bg-[#052b54] text-white overflow-hidden min-h-[60vh] flex flex-col justify-between pt-24">
+    <footer className="w-full relative bg-[var(--color-primary)] text-white overflow-hidden h-auto flex flex-col justify-between pt-16">
       
       {/* Background Illustration (Positioned at bottom) */}
       <div className="absolute inset-0 pointer-events-none z-0">
@@ -30,9 +30,9 @@ export default function Footer() {
           priority
         />
         {/* Gradient to fade top of image smoothly into the solid background */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#052b54] via-[#052b54]/80 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-primary)] via-[var(--color-primary)]/80 to-transparent"></div>
         {/* Gradient to fade bottom of image for bottom text readability */}
-        <div className="absolute inset-0 top-auto h-[40%] bg-gradient-to-t from-[#052b54] via-[#052b54]/70 to-transparent"></div>
+        <div className="absolute inset-0 top-auto h-[40%] bg-gradient-to-t from-[var(--color-primary)] via-[var(--color-primary)]/70 to-transparent"></div>
       </div>
 
       <motion.div 
@@ -48,8 +48,8 @@ export default function Footer() {
           
           {/* Left: Brand */}
           <motion.div variants={itemVariants} className="max-w-md lg:max-w-lg">
-            <div className="flex flex-col items-start mb-8 -mt-12 md:-mt-24">
-              <div className="relative w-64 h-64 md:w-[350px] md:h-[350px]">
+            <div className="flex flex-col items-start mb-8 -mt-8 md:-mt-16">
+              <div className="relative w-48 h-48 md:w-[250px] md:h-[250px]">
                 <Image 
                   src="/shanakaran_logo.svg" 
                   alt="Sankaran" 
@@ -57,7 +57,7 @@ export default function Footer() {
                   className="object-contain"
                 />
               </div>
-              <span className="font-title text-3xl font-black tracking-widest uppercase -mt-8 md:-mt-16 z-10">
+              <span className="font-title text-3xl font-black tracking-widest uppercase -mt-4 md:-mt-8 z-10">
                 SANKARAN BAKERY
               </span>
             </div>
@@ -110,7 +110,7 @@ export default function Footer() {
       </motion.div>
 
       {/* Bottom Bar (pushed to the very bottom, sitting on top of the illustration) */}
-      <div className="w-full relative z-10 mt-32 md:mt-48 pb-8 px-6 md:px-12">
+      <div className="w-full relative z-10 mt-16 md:mt-24 pb-8 px-6 md:px-12">
         <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center md:items-end gap-4 text-[0.7rem] text-white/50 font-medium text-center md:text-left">
           
           <div className="flex flex-col gap-2">

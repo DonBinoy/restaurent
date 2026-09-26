@@ -51,7 +51,7 @@ export default function FeaturedHampers() {
         <div className="flex flex-col gap-6 lg:w-2/3">
           
           {/* 1. HERO CARD (Massive Top Left) */}
-          <motion.div variants={cardVariants} className="bg-[#052b54] rounded-[2rem] p-8 md:p-12 relative overflow-hidden flex flex-col justify-between group h-[500px] lg:h-[600px] shadow-sm">
+          <motion.div variants={cardVariants} className="bg-[var(--color-primary)] rounded-[2rem] p-8 md:p-12 relative overflow-hidden flex flex-col justify-between group h-[500px] lg:h-[600px] shadow-sm">
             <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none bg-[url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')] z-0"></div>
             
             {/* SOLID TEXT LAYER (Behind Image, z-0) */}

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 const products = [
@@ -74,45 +75,46 @@ export default function Products() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               key={index} 
-              className="bg-white border border-gray-100 rounded-xl overflow-hidden hover:shadow-xl transition-shadow duration-300 group flex flex-col"
             >
-              {/* Image Area */}
-              <div className="relative aspect-square w-full bg-gray-50 flex items-center justify-center p-4">
-                {product.tag && (
-                  <span className="absolute top-3 left-3 bg-yellow-400 text-black text-[9px] font-bold px-2 py-1 rounded-sm uppercase tracking-widest z-10 shadow-sm">
-                    {product.tag}
-                  </span>
-                )}
-                <div className="relative w-full h-full group-hover:scale-110 transition-transform duration-500">
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    fill
-                    className="object-contain drop-shadow-md"
-                  />
-                </div>
-              </div>
-              
-              {/* Product Info */}
-              <div className="p-4 md:p-5 flex flex-col flex-grow">
-                <h3 className="text-sm md:text-base font-bold text-gray-900 leading-tight mb-1 group-hover:text-[var(--color-primary)] transition-colors">
-                  {product.name}
-                </h3>
-                <p className="text-xs text-gray-500 mb-4 line-clamp-1">
-                  {product.desc}
-                </p>
-                
-                <div className="mt-auto flex items-center justify-between">
-                  <div className="flex flex-col">
-                    <span className="text-[10px] text-gray-400 font-medium">{product.weight}</span>
-                    <span className="text-sm md:text-base font-bold text-gray-900">₹ {product.price}</span>
+              <Link href={`/product/${product.name.toLowerCase().replace(/ /g, '-')}`} className="bg-white border border-gray-100 rounded-xl overflow-hidden hover:shadow-xl transition-shadow duration-300 group flex flex-col h-full block">
+                {/* Image Area */}
+                <div className="relative aspect-square w-full bg-gray-50 flex items-center justify-center p-4">
+                  {product.tag && (
+                    <span className="absolute top-3 left-3 bg-yellow-400 text-black text-[9px] font-bold px-2 py-1 rounded-sm uppercase tracking-widest z-10 shadow-sm">
+                      {product.tag}
+                    </span>
+                  )}
+                  <div className="relative w-full h-full group-hover:scale-110 transition-transform duration-500">
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      fill
+                      className="object-contain drop-shadow-md"
+                    />
                   </div>
-                  
-                  <button className="bg-white border-2 border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white px-4 py-2 rounded-md text-xs font-bold uppercase tracking-wider transition-colors shadow-sm">
-                    Add
-                  </button>
                 </div>
-              </div>
+                
+                {/* Product Info */}
+                <div className="p-4 md:p-5 flex flex-col flex-grow">
+                  <h3 className="text-sm md:text-base font-bold text-gray-900 leading-tight mb-1 group-hover:text-[var(--color-primary)] transition-colors">
+                    {product.name}
+                  </h3>
+                  <p className="text-xs text-gray-500 mb-4 line-clamp-1">
+                    {product.desc}
+                  </p>
+                  
+                  <div className="mt-auto flex items-center justify-between">
+                    <div className="flex flex-col">
+                      <span className="text-[10px] text-gray-400 font-medium">{product.weight}</span>
+                      <span className="text-sm md:text-base font-bold text-gray-900">₹ {product.price}</span>
+                    </div>
+                    
+                    <button className="bg-white border-2 border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white px-4 py-2 rounded-md text-xs font-bold uppercase tracking-wider transition-colors shadow-sm pointer-events-none">
+                      View
+                    </button>
+                  </div>
+                </div>
+              </Link>
             </motion.div>
           ))}
         </div>

@@ -5,10 +5,13 @@ import { Search, User, ShoppingBag, Menu } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
+  const pathname = usePathname();
+  const isProductPage = pathname?.includes('/product');
   
   const { scrollY } = useScroll();
 
@@ -41,7 +44,7 @@ export default function Navbar() {
       initial="visible"
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
-      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 border-b ${scrolled ? 'bg-[#0B57A5]/95 backdrop-blur-md border-white/10 shadow-lg' : 'bg-transparent border-transparent'}`}
+      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 border-b ${scrolled || isProductPage ? 'bg-[var(--color-primary)] backdrop-blur-md border-white/10 shadow-lg' : 'bg-transparent border-transparent'}`}
     >
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex justify-between items-center h-24">
         {/* Logo Left */}

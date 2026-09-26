@@ -13,7 +13,7 @@ export default function LegacyBanner() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-[#052b54] rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 shadow-[0_30px_60px_-15px_rgba(5,43,84,0.3)] relative overflow-hidden"
+          className="bg-[var(--color-primary)] rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 shadow-[0_30px_60px_-15px_rgba(5,43,84,0.3)] relative overflow-hidden"
         >
           {/* Subtle noise and radial gradients to make it look premium */}
           <div className="absolute inset-0 opacity-[0.05] mix-blend-overlay pointer-events-none bg-[url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')]"></div>
@@ -21,7 +21,7 @@ export default function LegacyBanner() {
           <div className="absolute top-0 right-0 w-1/2 h-full opacity-20 pointer-events-none mix-blend-luminosity">
              <Image src="/kozhikode_bg.png" alt="Vintage Kozhikode" fill className="object-cover object-right" />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#052b54] via-[#052b54]/90 to-transparent pointer-events-none"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-primary)] via-[var(--color-primary)]/90 to-transparent pointer-events-none"></div>
 
           <div className="flex-1 text-center md:text-left relative z-10">
             <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-white/10 text-[var(--color-accent)] mb-6 mx-auto md:mx-0 border border-white/10">
@@ -37,7 +37,7 @@ export default function LegacyBanner() {
           </div>
           
           <div className="shrink-0 w-full md:w-auto flex justify-center relative z-10">
-            <button className="bg-white text-[#052b54] px-10 py-5 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-[var(--color-accent)] hover:text-white transition-all flex items-center justify-center gap-4 group shadow-xl">
+            <button className="bg-white text-[var(--color-primary)] px-10 py-5 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-[var(--color-accent)] hover:text-white transition-all flex items-center justify-center gap-4 group shadow-xl">
               Read Our Story
               <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
             </button>
