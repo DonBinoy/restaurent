@@ -81,7 +81,7 @@ export default function Hero() {
                 transition={{ type: 'spring', stiffness: 80, damping: 20 }}
                 className="absolute inset-0 flex items-center justify-center lg:justify-end"
               >
-                <div className="relative w-full h-full mx-auto drop-shadow-2xl scale-110 md:scale-125 lg:scale-[1.4] lg:-mt-28">
+                <div className="relative w-full h-full mx-auto drop-shadow-2xl scale-110 md:scale-125 lg:scale-[1.4] -mt-16 md:-mt-20 lg:-mt-28">
                   <Image
                     src={rightImages[currentImageIndex] || '/halwa_red1.png'}
                     alt="Halwa Display"

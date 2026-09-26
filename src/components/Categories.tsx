@@ -16,7 +16,7 @@ export default function Categories() {
     <section className="pb-10 bg-white relative border-b border-gray-100 z-20">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 text-center">
 
-        <div className="flex flex-wrap justify-center md:justify-center items-center gap-4 md:gap-8 pt-8 md:pt-12 mb-12 relative z-30">
+        <div className="flex overflow-x-auto md:flex-wrap md:justify-center items-start gap-6 md:gap-8 pt-24 md:pt-32 -mt-24 md:-mt-32 px-4 md:px-0 pb-8 relative z-30 scrollbar-hide snap-x snap-mandatory w-full">
           
           {categories.map((cat, idx) => (
             <motion.div
@@ -25,9 +25,9 @@ export default function Categories() {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1, type: "spring", stiffness: 200, damping: 20 }}
               key={idx}
-              className="flex flex-col items-center group cursor-pointer"
+              className="flex flex-col items-center group cursor-pointer flex-shrink-0 snap-center"
             >
-              <div className={`relative w-24 h-24 md:w-32 md:h-32 rounded-full ${cat.color} flex items-center justify-center mb-4 overflow-hidden border-[6px] border-white group-hover:border-[#A8763E] transition-colors duration-300 shadow-xl group-hover:shadow-2xl -mt-20 md:-mt-28`}>
+              <div className={`relative w-24 h-24 md:w-32 md:h-32 rounded-full ${cat.color} flex items-center justify-center mb-4 overflow-hidden border-[6px] border-white group-hover:border-[#A8763E] transition-colors duration-300 shadow-xl group-hover:shadow-2xl`}>
                 <Image 
                   src={cat.image}
                   alt={cat.name}
@@ -37,10 +37,10 @@ export default function Categories() {
                 />
               </div>
               
-              <h3 className="font-bold text-sm md:text-base text-gray-900 group-hover:text-[var(--color-primary)] transition-colors">
+              <h3 className="font-bold text-sm md:text-base text-gray-900 group-hover:text-[var(--color-primary)] transition-colors whitespace-nowrap">
                 {cat.name}
               </h3>
-              <p className="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-widest mt-1">
+              <p className="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-widest mt-1 whitespace-nowrap">
                 {cat.count}
               </p>
             </motion.div>
